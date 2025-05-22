@@ -15,5 +15,4 @@ with open('itjobs_empregos.jsonl', 'r', encoding='utf-8') as f:
         except json.JSONDecodeError as e:
             print(f"Error decoding JSON on line {line_number}: {e}")
 
-# for company in unique_companies:
-#     print(company)
+print(unique_companies)

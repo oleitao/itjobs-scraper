@@ -1,24 +1,12 @@
 import mysql.connector
 import simplejson as json
+import sys
 
-# Dados de conexão - altere conforme o seu ambiente
-config = {
-    'user': 'seu_usuario',
-    'password': 'sua_senha',
-    'host': 'localhost',
-    'database': 'sua_base_de_dados',
-    'charset': 'utf8mb4'
-}
+unique_companies = sys.argv[1]
+print("test")
+print(unique_companies)
 
-# Supondo que unique_companies já está preenchido
-unique_companies = {
-    'Empresa A',
-    'Empresa B',
-    'Empresa C'
-    # ... outros nomes únicos
-}
 
-print(json.dumps(list(unique_companies), ensure_ascii=False))
 
 # try:
 #     # Conectar ao MySQL

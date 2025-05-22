@@ -2,8 +2,8 @@ import subprocess
 import simplejson as json
 
 try:
-    return_code = subprocess.call(["python", "extraction.py"])
-    print("Exit extraction status code:", return_code)
+    # return_code = subprocess.call(["python", "extraction.py"])
+    # print("Exit extraction status code:", return_code)
 
     try:
         result = subprocess.run(
@@ -14,11 +14,11 @@ try:
         )
         print("Exit transformation status code:", result.returncode)
 
-        unique_companies = set(json.loads(result.stdout.strip()))
-        print("Unique companies:", unique_companies)
+        unique_companies = result.stdout.strip()
+        # print("Unique companies:", unique_companies)
 
         try:
-            return_code = subprocess.call(["python", "load.py"])
+            return_code = subprocess.call(["python", "load.py", unique_companies])
             print("Exit load status code:", return_code)
         except subprocess.CalledProcessError as e:
             print(f"Load script failed with return code {e.returncode}")
