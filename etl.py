@@ -2,8 +2,8 @@ import subprocess
 import simplejson as json
 
 try:
-    # return_code = subprocess.call(["python", "extraction.py"])
-    # print("Exit extraction status code:", return_code)
+    return_code = subprocess.call(["python", "extraction.py"])
+    print("Exit extraction status code:", return_code)
 
     try:
         result = subprocess.run(
