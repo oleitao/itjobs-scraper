@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
+from datetime import datetime
 
 BASE_URL = "https://www.itjobs.pt/emprego"
 HEADERS = {
@@ -73,7 +74,10 @@ def main():
     print(f"Total de páginas: {total_pages}")
     total_jobs = 0
 
-    with open("itjobs_empregos.jsonl", "w", encoding="utf-8") as f:
+    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    filename = f"itjobs_empregos_{timestamp}.jsonl"
+
+    with open(filename, "w", encoding="utf-8") as f:
         for page in range(1, total_pages + 1):
             print(f"Scraping página {page} de {total_pages}...")
             jobs = get_jobs_from_page(page)
