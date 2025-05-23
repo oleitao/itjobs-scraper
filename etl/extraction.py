@@ -90,6 +90,7 @@ def main():
 
     print(f"\nTotal de ofertas recolhidas: {total_jobs}")
     print("Guardado em itjobs_lista.jsonl")
+    print(filename)
 
 if __name__ == "__main__":
     main()

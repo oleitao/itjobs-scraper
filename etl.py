@@ -2,19 +2,27 @@ import subprocess
 import simplejson as json
 
 try:
-    return_code = subprocess.call(["python", "etl/extraction.py"])
+    return_code = subprocess.run(
+        ["python", "etl/extraction.py"],
+        capture_output=True,
+        text=True,
+        check=True
+    )
     print("Exit extraction status code:", return_code)
 
+    extraction_json=return_code.stdout.strip()
+    print(extraction_json)
+
     try:
-        result = subprocess.run(
-            ["python", "etl/transformation.py"],
+        return_code = subprocess.run(
+            ["python", "etl/transformation.py", extraction_json],
             capture_output=True,
             text=True,
             check=True
         )
-        print("Exit transformation status code:", result.returncode)
+        print("Exit transformation status code:", return_code.returncode)
 
-        unique_companies = result.stdout.strip()
+        unique_companies = return_code.stdout.strip()
         # print("Unique companies:", unique_companies)
 
         try:

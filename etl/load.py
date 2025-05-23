@@ -26,7 +26,8 @@ try:
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS companies (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(255) UNIQUE
+            name VARCHAR(255) UNIQUE,
+            status BOOLEAN DEFAULT FALSE
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     """)
    
