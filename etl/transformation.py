@@ -1,8 +1,10 @@
 import simplejson as json
+import sys
 
 unique_companies = set()
+companies_json = sys.argv[1]
 
-with open('itjobs_empregos.jsonl', 'r', encoding='utf-8') as f:
+with open(companies_json, 'r', encoding='utf-8') as f:
     for line_number, line in enumerate(f, 1):
         line = line.strip()
         if not line:
