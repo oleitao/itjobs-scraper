@@ -20,4 +20,9 @@ If you want to learn more about creating good readme files then refer the follow
 - [Chakra Core](https://github.com/Microsoft/ChakraCore)
 
 
+source myenv/bin/activate
+
+source venv/bin/deactivate
+
+
 pip install -r requirements.txt
